@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://yambal:p1490062@github.com/yambal/TimeReportRoutine.git"
+    "url": "git+https://github.com/yambal/TimeReportRoutine.git"
   },
   "author": "June YAMAMOTO <jy@yambal.net> (https://www.yambal.net/)",
   "license": "ISC",
