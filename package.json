@@ -1,0 +1,24 @@
+{
+  "name": "timereportroutine",
+  "version": "0.0.1",
+  "description": "Action on Google Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yambal:p1490062@github.com/yambal/TimeReportRoutine.git"
+  },
+  "author": "June YAMAMOTO <jy@yambal.net> (https://www.yambal.net/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yambal/TimeReportRoutine/issues"
+  },
+  "homepage": "https://github.com/yambal/TimeReportRoutine#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-pug": "^2.0.0"
+  }
+}
