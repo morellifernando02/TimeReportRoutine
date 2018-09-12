@@ -1,7 +1,8 @@
 "use strict";
 
+const ver = '20180912 1913'
 const functions = require("firebase-functions");
-
+var nanoid = require('nanoid')
 const REPORT_TYPES = [
   'cuckoo'
 ]
@@ -17,30 +18,20 @@ const {
   Suggestions,
   SignIn
 } = require("actions-on-google");
-const app = dialogflow();
 
-/*
-app.intent("Default Welcome Intent", conv => {
-  console.log("Default Welcome Intent")
-  const reportType = getReportType(conv);
-
-  switch(reportType){
-    case REPORT_TYPES[0]:
-      const bellTimes = getBellTimes(9)
-      const ssml = getCuckooClockSSML(bellTimes)
-      conv.close('<speak>' + ssml + '</speak>')
-      break;
-  }
+const app = dialogflow({
+   debug: false
 });
-*/
 
 app.intent("Time report", conv => {
-  console.log("Time report")
+  setLastReport(conv)
   const reportType = getReportType(conv);
+  const userId = setUserId(conv)
+  const bellTimes = getBellTimes(9)
+  console.log('Time report : ' + bellTimes + ' to [' + userId + '] : (' + reportType + ') ver.' + ver)
 
   switch(reportType){
     case REPORT_TYPES[0]:
-      const bellTimes = getBellTimes(9)
       const ssml = getCuckooClockSSML(bellTimes)
       conv.close('<speak>' + ssml + '</speak>')
       break;
@@ -58,6 +49,24 @@ const getReportType = (conv) =>{
     conv.user.storage.repotType = repotType
   }
   return repotType
+}
+
+const setUserId = (conv) => {
+  let userId
+  if (conv.user.storage && conv.user.storage.userId) {
+    userId = conv.user.storage.userId
+  }else{
+    let now = new Date();
+    userId = nanoid()
+    conv.user.storage.userId = userId
+    conv.user.storage.create = Math.round(now.getTime()/1000)
+  }
+  return userId
+}
+
+const setLastReport = (conv) => {
+  let now = new Date();
+  conv.user.storage.lastReport = Math.round(now.getTime()/1000)
 }
 
 const getBellTimes = (offset) => {

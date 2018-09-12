@@ -8,9 +8,10 @@ module.exports = function(grunt) {
             pretty: false
           }
         },
-        files: {
-          "public/index.html": "host_src/index.pug"
-        }
+        files: [
+          {"public/index.html": "host_src/index.pug"},
+          {"public/privacy.html": "host_src/privacy.pug"},
+        ]
       }
     },
     copy: {
