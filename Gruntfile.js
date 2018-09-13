@@ -15,13 +15,24 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      fonts: {
+      img: {
         files: [
           {
             expand: true,
             cwd: "host_src/img/",
             src: ["[^_]**.png"],
             dest: "public/img",
+            filter: "isFile"
+          }
+        ]
+      },
+      sound: {
+        files: [
+          {
+            expand: true,
+            cwd: "host_src/sounds/",
+            src: ["**.mp3"],
+            dest: "public/sounds",
             filter: "isFile"
           }
         ]

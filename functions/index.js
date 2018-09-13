@@ -1,6 +1,6 @@
 "use strict";
 
-const ver = '20180912 1913'
+const ver = '20180913 1010'
 const functions = require("firebase-functions");
 var nanoid = require('nanoid')
 const REPORT_TYPES = [
@@ -69,6 +69,7 @@ const setLastReport = (conv) => {
   conv.user.storage.lastReport = Math.round(now.getTime()/1000)
 }
 
+// return 0 - 11
 const getBellTimes = (offset) => {
   let now = new Date();
   let h = now.getHours() + offset
@@ -84,6 +85,10 @@ const getCuckooClockSSML = (num) => {
 }
 
 const getCuckooClockAudioUrl = (num) => {
+  if(num == 0){
+    num = 12
+  }
   const file = 'cuckoo_' + ('0' + num).slice(-2) + '.mp3'
-  return 'https://yambal.github.io/static-mtral/' + file
+  return 'https://time-report-routine.firebaseapp.com/sounds/' + file
+  //return 'https://yambal.github.io/static-mtral/' + file
 }

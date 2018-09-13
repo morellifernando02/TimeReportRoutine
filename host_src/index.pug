@@ -23,22 +23,36 @@ html(lang="ja" style="position:relative;min-height:100%;")
       div.container
         div.row(style="margin-top:40px;")
           div.col
-            h1 Google アシスタント アクションです
+            h2 Google アシスタント アクションです
             p 「鳩時計」は Google Home や スマートフォン などで使用できる Google アシスタント のアクション（アプリ）です
-            h1 どうやって使うの？
-            p 「鳩時計にいま何時と話して」と、話しかけてください
-            p 時刻にあわせて、鳩の鳴き声で教えてくれます
-            h2 おや？
+            h4 どうやって使うの？
+            p 
+              |「鳩時計にいま何時と話して」と、話しかけてください
+              br
+              |時刻にあわせて、鳩の鳴き声で教えてくれます
+            h4 おや？
             ul
-              li だいたいの時刻で教えてくれます（時刻の分を四捨五入します）
+              li だいたいの時刻で教えてくれます（時刻を四捨五入します... 例: 3時35分 = 4時）
               li 日本の時刻ですよ
+            hr
             h2 アイデア
             p
-              |「ルーティン」に設定すれば、Google Home が時刻を教えてくれるでしょう
+              |「ルーティン」に設定すれば、定刻で Google Home が鳩の声で時刻を教えてくれるでしょう
               br
               |でも、ちょっと遅れがちのようです...
               br
-              |ルーティンについて : a.btn.btn-outline-primary.btn-sm(href="https://support.google.com/googlehome/answer/7029585?co=GENIE.Platform%3DAndroid&hl=ja") Google Home ヘルプ : ルーティンの設定と管理
+              |ルーティンについて : 
+              a.btn.btn-outline-primary.btn-sm(href="https://support.google.com/googlehome/answer/7029585?co=GENIE.Platform%3DAndroid&hl=ja") Google Home ヘルプ : ルーティンの設定と管理
+            hr
+            h2 鳩の声
+              p
+                audio(src="/sounds/cuckoo_01.mp3" controls)
+            hr
+            h2 その他
+            p
+              |Google アシスタントの機能 : 
+              a.btn.btn-outline-primary.btn-sm(href="https://assistant.google.com/services/a/uid/00000027f7bb3f25?hl=ja") 鳩時計のページ
+            
     footer(style="position:absolute;bottom:0;width:100%;height:60px;background-color: #f5f5f5;line-height:60px;")
       div.container
         span.text-muted WWW.YAMBAL.NET
